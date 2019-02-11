@@ -1,0 +1,212 @@
+html, body, input, button {
+    font-family: monospace;
+    font-size: 16px;
+}
+.flex {
+    display: flex;
+}
+.flex.center-page {
+    justify-content: center;
+}
+.center {
+    text-align: center;
+}
+:not(.flex).center-page {
+    display: block;
+    margin: auto;
+    width: fit-content;
+}
+.add-card {
+    width: 70px;
+}
+.card {
+    width: 58px;
+    height: 100px;
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+    padding: 0 6px;
+    border-radius: 3px;
+    border-top:2px solid white;
+    box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd, 0px -2px 2px 0px #aaa;
+    transition: .2s box-shadow;
+    font-size: 20px;
+}
+.card.selected {
+    box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd, 0px -2px 2px 0px #aaa, 0 0 3px 3px gray;
+}
+.card.dragon.green {
+    background-image: url(img/dragon_green.png);
+}
+.card.dragon.red {
+    background-image: url(img/dragon_red.png);
+}
+.card.dragon.white {
+    background-image: url(img/dragon_white.png);
+}
+.card.flower {
+    background-image: url(img/flower.png);
+}
+.card.full {
+    background-color: gray;
+}
+.card.suit {
+    background-position-y: 22px;
+}
+.card.suit.bamboo {
+    background-image: url(img/bamboo.png);
+    color: green;
+}
+.card.suit.char {
+    background-image: url(img/characters.png);
+    color: black;
+}
+.card.suit.coin {
+    background-image: url(img/coins.png);
+    color: darkred;
+}
+.tray, .add-card, .slot {
+    margin: 10px;
+    min-width: 70px;
+}
+#trays .card:not(:first-child) {
+    margin-top: -70px;
+}
+#selector {
+    position: absolute;
+    padding: 14px;
+    background-color: white;
+    border-radius: 3px;
+    border-top:2px solid white;
+    box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd;
+}
+#selector p {
+    margin: 3px;
+}
+#selector img {
+    padding: 3px;
+    margin: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: .2s background-color;
+    cursor: pointer;
+}
+#selector img:hover {
+    background-color: #ddd;
+}
+#selector img.selected {
+    background-color: #ccc;
+}
+#selector input {
+    margin: 3px;
+    width: 28px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid gray;
+}
+button {
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background-color: #ddd;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: .2s background-color, .2s box-shadow;
+}
+button[disabled] {
+    cursor: not-allowed;
+}
+button:not([disabled]):hover {
+    box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd;
+    background-color: #eee;
+}
+button.red {
+    background-color: #f70202;
+    color: white;
+}
+button.red:hover {
+    background-color: #ff3030;
+}
+
+/* https://codepen.io/brissmyr/pen/egidw */
+.close {
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: .1s opacity;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 8px;
+    content: ' ';
+    height: 14px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+.pages-wrapper .pages {
+    min-height: 20px;
+}
+.pages-wrapper .navigation {
+    margin-top: 18px;
+}
+.pages-wrapper .navigation button {
+    width: 50px;
+    font-size: 36px;
+    position: relative;
+    background-color: transparent;
+    top: -50px;
+}
+.pages-wrapper .navigation .prev-page {
+    left: -200px;
+}
+.pages-wrapper .navigation .next-page {
+    left: 200px;
+}
+@keyframes highlight-from {
+    50% {
+        background-color: yellow;
+        box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd, 0px -2px 2px 0px #aaa, 0 0 3px 3px orange
+    }
+}
+@keyframes highlight-to {
+    50% {
+        background-color: orange;
+        box-shadow: 0px 0px 0px 1px #aaa, 0px 1px 3px 1px #ddd, 0px -2px 2px 0px #aaa, 0 0 3px 3px orangered
+    }
+}
+.card.selected-from {
+    animation-name: highlight-from;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.card.selected-target, .tray.selected-target:empty {
+    animation-name: highlight-to;
+    animation-duration: 3s;
+    animation-delay: 1.5s;
+    animation-iteration-count: infinite;
+}
+#solution-box {
+    position: fixed;
+    width: 100%;
+    bottom: 14px;
+}
+#slots {
+    position: relative;
+    left: -225px;
+    margin-bottom: 14px;
+}

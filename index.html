@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#000000" />
+        <title>Smankusors' Shenzhen Solitaire Solver</title>
+        <script src="jquery.min.js"></script>
+        <script src="prorityqueue.js"></script>
+        <script src="xxhash.min.js"></script>
+        <script src="main.js"></script>
+        <script src="solver.js"></script>
+        <link rel="stylesheet" href="css.css" />  
+    </head>
+    <body>
+        <h2 class="center-page">Smankusors' Shenzhen Solitaire Solver<br /><br /></h2>
+        <div class="flex center-page" id="slots" style="display: none">
+            <div class="slot" id="slot-0"></div>
+            <div class="slot" id="slot-1"></div>
+            <div class="slot" id="slot-2"></div>
+        </div>
+        <div class="flex center-page" id="trays"></div>
+        <div class="flex center-page" id="add-card-btns"></div>
+        <button id="solve-btn" onclick="solve()" class="center-page" style="width: 200px">SOLVE</button>
+        <br /><br />
+        <div id="solution-box" class="center pages-wrapper" style="display:none">
+            <div class="pages"></div>
+            <div class="navigation">
+                <button class="prev-page">&lt;</button>
+                <span class="current-page">0</span>
+                <span>/</span>
+                <span class="total-page">0</span>
+                <button class="next-page">&gt;</button>
+            </div>
+        </div>
+        <div id="selector" style="display:none" tabindex="0">
+            <div class="flex special">
+                <div style="margin-right: 8px">
+                    <p>DRAGONS :</p>
+                    <img src="img/dragon_green.png" alt="dragon green" /><img src="img/dragon_red.png" alt="dragon red" /><img src="img/dragon_white.png" alt="dragon white" />
+                </div>
+                <hr style="margin-right: 8px" />
+                <div>
+                    <p>FLOWER :</p>
+                    <img src="img/flower.png" alt="flower" />
+                </div>
+            </div>
+            <hr />
+            <div class="flex suits">
+                <div style="margin-right: 8px">
+                    <p>SUITS :</p>
+                    <img src="img/bamboo.png" alt="suit bamboo" /><img src="img/characters.png" alt="suit char" /><img src="img/coins.png" alt="suit coin" /><br />
+                </div>
+                <div>
+                    <p>Number :<input type="number" name="suit-number" id="suit-number" min="1" max="9" value="1" maxlength="1" /></p>
+                    <button id="apply-suits">Apply</button>
+                </div>
+            </div>
+            <hr />
+            <button id="remove-card" class="red">Remove</button>
+            <a class="close"></a>
+        </div>
+    </body>
+</html>
