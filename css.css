@@ -63,7 +63,7 @@ html, body, input, button {
 }
 .card.suit.coin {
     background-image: url(img/coins.png);
-    color: darkred;
+    color: rgb(180, 0, 0);
 }
 .tray, .add-card, .slot {
     margin: 10px;

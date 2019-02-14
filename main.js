@@ -80,6 +80,7 @@ $(document).ready(function() {
             case 'B':
                 $(".special [alt*=white]").click();
                 break;
+            case 'F':
             case 'f':
                 $(".special [alt*=flower]").click();
                 break;
@@ -254,7 +255,7 @@ function prepare_solution(solutionStates) {
     _(".navigation .prev-page").click(function() {
         solutionBoxEl.prev_page();
     });
-    $("#solve-btn").fadeOut(200, function() {
+    $("#solve-btn, #help-btn").fadeOut(200, function() {
         solutionBoxEl.fadeIn(200);
     })
     solutionBoxEl.open_step(0);
@@ -370,4 +371,21 @@ function generate_card_element(card, flower = true) {
             break;
     }
     return '<div class="card ' + tags + '" title="' + tags + '">' + content + '</div>';
+}
+
+function help() {
+    alert(
+        "There is some keyboard shortcuts you can use, when you select the card, the selector dialog will pop up. In this dialog, you can press :\n\n"+
+        "Shift + G => Green Dragon\n" +
+        "Shift + R => Red Dragon\n" +
+        "Shift + B or Shift + W => White Dragon\n" +
+        "F => Flower\n" +
+        "G then [number] then ENTER => Bamboo card with value [number]\n" +
+        "B then [number] then ENTER => Char card with value [number]\n" +
+        "R then [number] then ENTER => Coin card with value [number]\n" +
+        "Delete => Remove the selected card\n" +
+        "Escape => Close the selector dialog and unselect current card\n" +
+        "\n" +
+        "Don't forget to turn the Caps Lock off otherwise you may have some problems with shortcut :D"
+    );
 }
